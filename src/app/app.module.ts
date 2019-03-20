@@ -4,10 +4,10 @@ import {Routes, RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
-import { ItemComponent } from './item/item.component';
+
 import { TempComponent } from './temp/temp.component';
-import { ItemListComponent } from './item/item-list/item-list.component';
-import { ItemListItemComponent } from './item/item-list-item/item-list-item.component';
+import { ItemComponent } from './item/item.component';
+import {ItemModule} from './item/item.module';
 
 const routes: Routes=[
   {path: '', component: ItemComponent},
@@ -18,14 +18,13 @@ const routes: Routes=[
   declarations: [
     AppComponent,
     HeaderComponent,
-    ItemComponent,
-    TempComponent,
-    ItemListComponent,
-    ItemListItemComponent
+
+    TempComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
-    BrowserModule
+    BrowserModule,
+    ItemModule
   ],
   providers: [],
   bootstrap: [AppComponent]
