@@ -8,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class ItemListComponent implements OnInit {
   items: any[] = [{
     id: 1,
-    title: "Central Apartment",
-    city: "New York",
+    donor: "Raheema Resturent",
+    title: "Plate of Noodless",
+    city: "Kuruduwatta",
     street: "Times Sqaure",
-    category: "apartment",
+    category: "food",
     image: "http://via.placeholder.com/350x250",
     bedrooms: 3,
     description: "Very nice apartment",
@@ -21,7 +22,8 @@ export class ItemListComponent implements OnInit {
   },
   {
     id: 2,
-    title: "Central Apartment 2",
+    donor: "Raheema Resturent",
+    title: "Plate of Noodless",
     city: "San Francisco",
     street: "Main street",
     category: "condo",
@@ -34,7 +36,8 @@ export class ItemListComponent implements OnInit {
   },
   {
     id: 3,
-    title: "Central Apartment 3",
+    donor: "Raheema Resturent",
+    title: "Plate of Noodless",
     city: "Bratislava",
     street: "Hlavna",
     category: "condo",
@@ -47,6 +50,21 @@ export class ItemListComponent implements OnInit {
   },
   {
     id: 4,
+    donor: "Raheema Resturent",
+    title: "Plate of Noodless",
+    city: "Bratislava",
+    street: "Hlavna",
+    category: "condo",
+    image: "http://via.placeholder.com/350x250",
+    bedrooms: 2,
+    description: "Very nice apartment",
+    dailyRate: 334,
+    shared: true,
+    createdAt: "24/12/2017"
+  },
+  {
+    id: 5,
+    donor: "Raheema Resturent",
     title: "Central Apartment 4",
     city: "Berlin",
     street: "Haupt strasse",
