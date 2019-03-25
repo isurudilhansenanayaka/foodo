@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from '../shared/item.service';
+import { item } from '../shared/item.module';
 
 @Component({
   selector: 'bwm-item-list',
@@ -6,80 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item-list.component.css']
 })
 export class ItemListComponent implements OnInit {
-  items: any[] = [{
-    id: 1,
-    donor: "Raheema Resturent",
-    title: "Plate of Noodless",
-    city: "Kuruduwatta",
-    street: "Times Sqaure",
-    category: "food",
-    image: "http://via.placeholder.com/350x250",
-    bedrooms: 3,
-    description: "Very nice apartment",
-    dailyRate: 34,
-    shared: false,
-    createdAt: "24/12/2017"
-  },
-  {
-    id: 2,
-    donor: "Raheema Resturent",
-    title: "Plate of Noodless",
-    city: "San Francisco",
-    street: "Main street",
-    category: "condo",
-    image: "http://via.placeholder.com/350x250",
-    bedrooms: 2,
-    description: "Very nice apartment",
-    dailyRate: 12,
-    shared: true,
-    createdAt: "24/12/2017"
-  },
-  {
-    id: 3,
-    donor: "Raheema Resturent",
-    title: "Plate of Noodless",
-    city: "Bratislava",
-    street: "Hlavna",
-    category: "condo",
-    image: "http://via.placeholder.com/350x250",
-    bedrooms: 2,
-    description: "Very nice apartment",
-    dailyRate: 334,
-    shared: true,
-    createdAt: "24/12/2017"
-  },
-  {
-    id: 4,
-    donor: "Raheema Resturent",
-    title: "Plate of Noodless",
-    city: "Bratislava",
-    street: "Hlavna",
-    category: "condo",
-    image: "http://via.placeholder.com/350x250",
-    bedrooms: 2,
-    description: "Very nice apartment",
-    dailyRate: 334,
-    shared: true,
-    createdAt: "24/12/2017"
-  },
-  {
-    id: 5,
-    donor: "Raheema Resturent",
-    title: "Central Apartment 4",
-    city: "Berlin",
-    street: "Haupt strasse",
-    category: "house",
-    image: "http://via.placeholder.com/350x250",
-    bedrooms: 9,
-    description: "Very nice apartment",
-    dailyRate: 334,
-    shared: true,
-    createdAt: "24/12/2017"
-  }];
+  items: item[] = [];
 
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
+    const itemObservable=this.itemService.getItems();
+    itemObservable.subscribe(
+      (items: item[])=>{
+        this.items=items;
+      },
+      (err)=>{
+
+      },
+      ()=>{}
+   );
   }
 
 }
