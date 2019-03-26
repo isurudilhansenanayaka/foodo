@@ -1,17 +1,33 @@
 import {NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {Routes, RouterModule} from '@angular/router';
 
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemListItemComponent } from './item-list-item/item-list-item.component';
 import { ItemComponent } from './item.component';
 import {ItemService} from './shared/item.service';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
+
+const routes: Routes=[
+    {path: 'items',
+     component: ItemComponent,
+     children: [
+         {path: '', component: ItemListComponent},
+         {path: ':itemId', component: ItemDetailComponent}
+     ]
+    }
+    
+  ]
+
 @NgModule({
     declarations: [
     ItemComponent,
     ItemListComponent,
-    ItemListItemComponent
+    ItemListItemComponent,
+    ItemDetailComponent
     ],
-    imports: [CommonModule],
+    imports: [CommonModule,
+    RouterModule.forChild(routes)],
     providers: [ItemService]
 })
 export class ItemModule{}

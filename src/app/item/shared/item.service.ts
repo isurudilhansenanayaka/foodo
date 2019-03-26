@@ -75,18 +75,24 @@ export class ItemService{
         shared: true,
         expiredAt: "24/12/2017"
       }];
+      public getItemById(itemId: String): Observable<item>{
+        return new Observable<item>((observer)=>{
+            setTimeout(()=>{
+              const foundItem=this.items.find((item) => {
+                return item.id==itemId;
+              });
+              observer.next(foundItem);
+            }, 500);
+        });
+      }
+
       public getItems(): Observable<item[]>{
-          const itemObservable: Observable<item[]>= new Observable((observer)=>{
+          return new Observable<item[]>((observer)=>{
               setTimeout(()=>{
                 observer.next(this.items)
                  }, 1000);
-            setTimeout(()=>{
-            observer.error("I am error");
-                }, 2000);
-            setTimeout(()=>{
-                observer.complete();
-                    }, 3000);
+            
           });
-            return itemObservable;
+            
       }
 }
