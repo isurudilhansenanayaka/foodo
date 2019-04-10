@@ -26,7 +26,7 @@ export class ItemService{
         city: "San Francisco",
         street: "Main street",
         category: "condo",
-        image: "http://via.placeholder.com/350x250",
+        image: "http://via.placeholder.com/50x250",
         quantity: 2,
         description: "Very nice apartment",
         dailyRate: 12,
