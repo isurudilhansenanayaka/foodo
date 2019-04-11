@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MapSevice } from './map.service';
 
 @Component({
   selector: 'bwm-map',
@@ -7,11 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MapComponent implements OnInit {
   @Input()location: String;
-  lat: number = 51.678418;
-  lng: number = 7.809007;
-  constructor() { }
+  lat: number ;
+  lng: number ;
+  constructor(private mapService: MapSevice) { }
 
   ngOnInit() {
+  }
+  mapReadyHandler(){
+    this.mapService.geoCodeLocation(this.location).subscribe(
+      (coodinates)=>{
+        this.lat= coodinates.lat;
+        this.lng= coodinates.lng;
+      });
+    
   }
 
 }
