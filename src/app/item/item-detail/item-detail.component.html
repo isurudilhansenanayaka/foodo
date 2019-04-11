@@ -4,7 +4,11 @@
         <div class="row">
           <div class="col-md-6">
               <p class="text-primary">Food Id:- {{item.id}}</p>
-            <img src="/assets/image/download.jpg" alt="">
+            <img src="/assets/image/download.jpg" height="300px" width="500px" alt="">
+          </div>
+          <div class="col-md-6">
+              <p class="text-primary">Food Id:- {{item.id}}</p>
+            <bwm-map [location]="item.city"></bwm-map>
           </div>
         </div>
       </div>
@@ -56,7 +60,7 @@
     <p class="text-success">
       <span class="glyphicon glyphicon-calendar"></span>
       <span class="text-dark"> Expired Date:- </span>
-      <span class="text-white bg-dark">{{item.expiredAt}}</span>
+      <span class="text-white bg-dark" >{{item.expiredAt}}</span>
     </p>
     <p class="text-success">
       <span class="glyphicon glyphicon-time"></span>
@@ -92,12 +96,14 @@
                       <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
                           <span class="glyphicon glyphicon-plus"></span>
                       </button>
+                      <br>
                   </span>
-              </div>
+                </div>
+
       </div>
     </div>
   </div><br>
-  <button type="button" class="btn btn-primary" >Order Now</button>
+  <button type="button" class="btn btn-primary" >Order Now</button><br>
 <script src="js/incrementing.js">
 
 </script>

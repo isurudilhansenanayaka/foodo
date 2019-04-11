@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Routes, RouterModule} from '@angular/router';
-
+import { MapModule} from '../common/map/map.module';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemListItemComponent } from './item-list-item/item-list-item.component';
 import { ItemComponent } from './item.component';
@@ -27,7 +27,9 @@ const routes: Routes=[
     ItemDetailComponent
     ],
     imports: [CommonModule,
-    RouterModule.forChild(routes)],
+    RouterModule.forChild(routes),
+    MapModule
+],
     providers: [ItemService]
 })
 export class ItemModule{}
