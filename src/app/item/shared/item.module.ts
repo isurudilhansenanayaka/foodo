@@ -11,4 +11,5 @@ export class item{
     dailyRate: number;
     shared: boolean;
     expiredAt: String;
+    expiredTime: String;
 }

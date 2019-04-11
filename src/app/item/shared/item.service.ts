@@ -8,7 +8,7 @@ export class ItemService{
     [{
         id: "1",
         donor: "Raheema Resturent",
-        title: "Plate of Noodless",
+        title: "Noodless",
         city: "Kuruduwatta",
         street: "Times Sqaure",
         category: "food",
@@ -17,12 +17,13 @@ export class ItemService{
         description: "Very nice apartment",
         dailyRate: 34,
         shared: false,
-        expiredAt: "24/12/2017"
+        expiredAt: "24/12/2017",
+        expiredTime: "22:50"
       },
       {
         id: "2",
         donor: "Raheema Resturent",
-        title: "Plate of Noodless",
+        title: "Noodless",
         city: "San Francisco",
         street: "Main street",
         category: "condo",
@@ -31,12 +32,13 @@ export class ItemService{
         description: "Very nice apartment",
         dailyRate: 12,
         shared: true,
-        expiredAt: "24/12/2017"
+        expiredAt: "24/12/2017",
+        expiredTime: "22:50"
       },
       {
         id: "3",
         donor: "Raheema Resturent",
-        title: "Plate of Noodless",
+        title: "Noodless",
         city: "Bratislava",
         street: "Hlavna",
         category: "condo",
@@ -45,12 +47,13 @@ export class ItemService{
         description: "Very nice apartment",
         dailyRate: 334,
         shared: true,
-        expiredAt: "24/12/2017"
+        expiredAt: "24/12/2017",
+        expiredTime: "22:50"
       },
       {
         id: "4",
         donor: "Raheema Resturent",
-        title: "Plate of Noodless",
+        title: "Noodless",
         city: "Bratislava",
         street: "Hlavna",
         category: "condo",
@@ -59,12 +62,13 @@ export class ItemService{
         description: "Very nice apartment",
         dailyRate: 334,
         shared: true,
-        expiredAt: "24/12/2017"
+        expiredAt: "24/12/2017",
+        expiredTime: "22:50"
       },
       {
         id: "5",
         donor: "Raheema Resturent",
-        title: "Central Apartment 4",
+        title: "Noodless",
         city: "Berlin",
         street: "Haupt strasse",
         category: "house",
@@ -73,7 +77,8 @@ export class ItemService{
         description: "Very nice apartment",
         dailyRate: 334,
         shared: true,
-        expiredAt: "24/12/2017"
+        expiredAt: "24/12/2017",
+        expiredTime: "22:50"
       }];
       public getItemById(itemId: String): Observable<item>{
         return new Observable<item>((observer)=>{
