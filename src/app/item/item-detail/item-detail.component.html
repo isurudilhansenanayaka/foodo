@@ -1,8 +1,110 @@
-<div *ngIf="item">
-<p>{{item.id}}</p>
-<p>{{item.title}}</p>
-<p>{{item.city}}</p>
-<p>{{item.street}}</p>
-<p>{{item.category}}</p>
-<p>{{item.description}}</p>
+<section id="itemDetails" *ngIf="item">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <div class="upper-section">
+        <div class="row">
+          <div class="col-md-6">
+              <p class="text-primary">Food Id:- {{item.id}}</p>
+            <img src="/assets/image/download.jpg" height="300px" width="500px" alt="">
+          </div>
+          <div class="col-md-6">
+              <p class="text-primary">Food Id:- {{item.id}}</p>
+            <bwm-map [location]="item.city"></bwm-map>
+          </div>
+        </div>
+      </div>
+
+      <div class="details-section">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="item">
+                
+                <h1 class="item-title">{{item.title| uppercase}}</h1>
+                <h2 class="item-city">city:- <span class="text-success">{{item.city}}</span></h2>
+                
+                
+               
+              </div>
+            </div>
+            <section>
+                <h2>Reviews</h2>
+                <div *ngFor="let review of reviews" class="card review-card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-2">
+                          <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
+                          <p class="text-secondary text-center">{{formatDate(review.createdAt)}}</p>
+                      </div>
+                      <div class="col-md-10">
+                        <div>
+                          <a><strong>{{review.user.username}}</strong></a>
+                          <div class="review-section">
+                              <!-- {{review function contents}} -->
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <p>{{review.text}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              
+            </div>
+          </div>
+        </div> 
+<div class="row">
+ <div class="col-md-6">
+    <p class="text-success">
+      <span class="glyphicon glyphicon-calendar"></span>
+      <span class="text-dark"> Expired Date:- </span>
+      <span class="text-white bg-dark" >{{item.expiredAt}}</span>
+    </p>
+    <p class="text-success">
+      <span class="glyphicon glyphicon-time"></span>
+      <span class="text-dark"> Expired Time:- </span>
+      <span class="text-white bg-dark">{{item.expiredTime}}</span>
+    </p>
+
+    <p class="text-success"> 
+      <span class="glyphicon glyphicon-pushpin"></span>
+      <span class="text-dark"> Our Location:- </span>
+      {{item.street}}
+    </p>
+
+    <p class="text-success">
+      <span class="glyphicon glyphicon-send"></span>
+      <span class="text-dark"> Description:-</span>
+      {{item.description}}
+    </p>
 </div>
+
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-2">
+                      <div class="input-group">
+                  <span class="input-group-btn">
+                      <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                        <span class="glyphicon glyphicon-minus"></span>
+                      </button>
+                  </span>
+                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="0" min="1" max="100">
+                  <span class="input-group-btn">
+                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                          <span class="glyphicon glyphicon-plus"></span>
+                      </button>
+                      <br>
+                  </span>
+                </div>
+
+      </div>
+    </div>
+  </div><br>
+  <button type="button" class="btn btn-primary" >Order Now</button><br><br><br>
+<script src="js/incrementing.js">
+
+</script>
+</section>
