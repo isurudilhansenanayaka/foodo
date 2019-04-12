@@ -25,6 +25,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "ngx-bootstrap": "^3.2.0",
+    "ngx-pipes": "^2.4.6",
     "popper.js": "^1.12.9",
     "rxjs": "~6.3.3",
     "tether": "^1.4.5",

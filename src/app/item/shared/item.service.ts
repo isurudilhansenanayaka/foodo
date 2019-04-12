@@ -9,7 +9,7 @@ export class ItemService{
         id: "1",
         donor: "Raheema Resturent",
         title: "Noodless",
-        city: "Kuruduwatta",
+        city: "Colombo",
         street: "Times Sqaure",
         category: "food",
         image: "http://via.placeholder.com/350x250",
