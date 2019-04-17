@@ -14,16 +14,6 @@ const routes: Routes = [
   {path: '', redirectTo: 'items', pathMatch: 'full'},
 ];
 
-import { AgmCoreModule } from '@agm/core';
-
-import { ItemComponent } from './item/item.component';
-import {ItemModule} from './item/item.module';
-
-
-const routes: Routes=[
-  {path: '', redirectTo: '/items', pathMatch:'full'},
- 
-]
 
 
 @NgModule({
