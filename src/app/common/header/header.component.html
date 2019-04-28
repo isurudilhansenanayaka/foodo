@@ -9,14 +9,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/login">LogIn <span class="sr-only">(current)</span></a>
+        <ng-container>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/login">LogIn <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register">Register</a>
+          </li>
+      </ng-container>
+      <li class="nav-item"><!-- *ngIf="!auth-->
+          <a class="nav-link" >{{auth.getUsername()}}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/register">Register</a>
+      <li class="nav-item">
+          <a class="nav-link" >Logout</a>
         </li>
-        
-        
       </ul>
     </div>
   </nav>
+
+<!-- *ngIf="!auth.isAuthenticated()" in      <ng-container>-->
+<!-- *ngIf="auth.isAuthenticated()" in      logout-->

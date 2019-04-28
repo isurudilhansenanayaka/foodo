@@ -9,7 +9,7 @@ import {AuthService} from './shared/auth.service';
 const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent}
-];
+]
 
 
 @NgModule({
