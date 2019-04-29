@@ -9,7 +9,7 @@ import { AuthService } from '../../auth/shared/auth.service'
 export class HeaderComponent{
     constructor(private router:Router){}   // private: auth:AuthService
     logout(){
-        this.auth.logout();
+       // this.auth.logout();
         this.router.navigate(['/login']);
     }
 }
