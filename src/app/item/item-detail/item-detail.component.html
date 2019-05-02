@@ -25,29 +25,7 @@
                
               </div>
             </div>
-            <section>
-                <h2>Reviews</h2>
-                <div *ngFor="let review of reviews" class="card review-card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-md-2">
-                          <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
-                          <p class="text-secondary text-center">{{formatDate(review.createdAt)}}</p>
-                      </div>
-                      <div class="col-md-10">
-                        <div>
-                          <a><strong>{{review.user.username}}</strong></a>
-                          <div class="review-section">
-                              <!-- {{review function contents}} -->
-                          </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <p>{{review.text}}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
+            
           </div>
           <div class="row">
             <div class="col-md-8">
@@ -79,6 +57,7 @@
       <span class="text-dark"> Description:-</span>
       {{item.description}}
     </p>
+    <ng-number-picker  [(value)]="value" max=10 ></ng-number-picker>
 </div>
 
 </div>
@@ -102,8 +81,10 @@
 
       </div>
     </div>
-  </div><br>
-  <button type="button" class="btn btn-primary" >Order Now</button><br><br><br>
+  </div><br> <div class="col-md-8">
+    <bwm-item-detail-order>[item]="item"</bwm-item-detail-order>
+  </div>
+
 <script src="js/incrementing.js">
 
 </script>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {ItemService} from '../shared/item.service';
 import {item} from '../shared/item.module';
+
 @Component({
   selector: 'bwm-item-detail',
   templateUrl: './item-detail.component.html',

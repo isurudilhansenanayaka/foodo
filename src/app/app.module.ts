@@ -9,7 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ItemComponent } from './item/item.component';
 import {ItemModule} from './item/item.module';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 const routes: Routes = [
@@ -32,6 +32,7 @@ const routes: Routes = [
     BrowserModule,
     ItemModule,
     AuthModule,
+    NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],

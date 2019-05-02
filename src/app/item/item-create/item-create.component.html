@@ -1,0 +1,95 @@
+<section id="newItem">
+  <div class="bwm-form">
+    <div class="row">
+      <div class="col-md-5">
+        <h1 class="page-title">Create Item</h1>
+        <form >
+          <div class="form-group">
+            <label for="foodid">FoodId</label>
+            <input type="text"
+                   class="form-control"
+                   id="foodid"
+                   required>
+          </div>
+
+          <div class="form-group">
+            <label for="foodid">Food Name</label>
+            <input type="text"
+                   class="form-control"
+                   id="foodname"
+                   required>
+          </div>
+
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text"
+                   class="form-control"
+                   id="city"
+                   required>
+          </div>
+
+          <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text"
+                   class="form-control"
+                   id="street"
+                   required>
+          </div>
+          <div class="form-group">
+              <label for="street">Date</label>
+          <input class="form-control" type="text" name="input" placeholder="YYYY-MM-DD" required 
+          pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" 
+          title="Enter a date in this format YYYY-MM-DD"/>
+          </div>
+          
+
+          <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file"
+                   name="image"
+                   class="form-control"
+                   id="image"
+                   placeholder="Upload file..."
+                   required>
+          </div>
+
+          
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea rows="5"
+                      type="text"
+                      class="form-control"
+                      id="description"
+                      required>
+            </textarea>
+          </div>
+
+          
+
+          <div class="form-group">
+            <label for="shared">Shared</label>
+            <input type="checkbox"
+                   class="form-control"
+                   id="shared"
+                   required>
+          </div>
+          <button (click)="createItem()"
+                  [disabled]="!ItemForm.form.valid"
+                  type="button" class="btn btn-bwm">Submit</button>
+        </form>
+      </div>
+      <div *ngIf="errors.length > 0" class="alert alert-danger">
+        <p *ngFor="let error of errors">
+          {{error.detail}}
+        </p>
+      </div>
+      <div class="col-md-6 ml-auto">
+        <div class="image-container">
+          <h2 class="catchphrase">Hundreds of awesome fodds in reach of few clicks.</h2>
+          <img src="../../../assets/image/Eays-Ways-to-Avoid-Food-Waste-Cover.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

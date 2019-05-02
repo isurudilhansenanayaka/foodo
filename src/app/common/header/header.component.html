@@ -17,6 +17,19 @@
             <a class="nav-link" routerLink="/register">Register</a>
           </li>
       </ng-container>
+      <div class="nav-item dropdown" clickable>
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Owner Section
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/items/new" >Create Item</a>
+        </div>
+      </div>
+      
+      
+      
+      <!-- https://api.adorable.io/avatars/285/abott@adorable.png -->
+      
       <li class="nav-item"><!-- *ngIf="!auth-->
           <a class="nav-link" >{{auth.getUsername()}}</a>
         </li>
