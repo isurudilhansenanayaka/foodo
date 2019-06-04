@@ -5,11 +5,11 @@ import {environment} from './../environments/environment';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
 import { AuthModule} from './auth/auth.module';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { ItemComponent } from './item/item.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import {ItemModule} from './item/item.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 const routes: Routes = [
@@ -24,7 +24,7 @@ const routes: Routes = [
     HeaderComponent
 
 
-   
+
 
   ],
   imports: [
@@ -32,9 +32,11 @@ const routes: Routes = [
     BrowserModule,
     ItemModule,
     AuthModule,
+// tslint:disable-next-line: deprecation
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
