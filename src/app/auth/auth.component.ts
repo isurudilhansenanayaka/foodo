@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService }  from '../services/auth.service';
 
 @Component({
   selector: 'bwm-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent{
 
-  constructor() { }
+  constructor(public user: AuthService) {
 
-  ngOnInit() {
-  }
+   }
 
 }

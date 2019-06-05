@@ -7,60 +7,60 @@
         <form #registerForm="ngForm">
           <div class="form-group">
             <label for="username">Username</label><br>
-            <input [(ngModel)]="formData.username" 
+            <input [(ngModel)]="formData.username"
             #username="ngModel"
-            name="username" 
-            type="text" 
-            class="for-control" 
-            id="username" 
+            name="username"
+            type="text"
+            class="for-control"
+            id="username"
             size="35"
             required>
           <div *ngIf="username.invalid && (username.dirty || username.touched)"
           class="alert alert-danger">
-        
+
           <div *ngIf="username.errors.required">
             Username is required.
           </div>
-        </div>     
+        </div>
           </div>
 
           <div class="form-group">
             <label for="email">Email</label><br>
-            <input [(ngModel)]="formData.email" 
+            <input [(ngModel)]="formData.email"
             #email="ngModel"
-            name="email" 
-            type="email" 
-            class="for-control" 
-            id="email" 
+            name="email"
+            type="email"
+            class="for-control"
+            id="email"
             size="35"
             required>
             <div *ngIf="email.invalid && (email.dirty || email.touched)"
           class="alert alert-danger">
-        
+
           <div *ngIf="email.errors.required">
             Email is required.
           </div>
-        </div> 
+        </div>
           </div>
 
           <div class="form-group">
             <label for="contact">Contact</label><br>
-            <input [(ngModel)]="formData.contact" 
-            name="contact" 
-            type="tel" 
+            <input [(ngModel)]="formData.contact"
+            name="contact"
+            type="tel"
             class="for-control"
-            id="contact" 
+            id="contact"
             size="35"
             required>
           </div>
           <div class="form-group">
             <label for="Society">Restaurant/Society Name</label><br>
             <input [(ngModel)]="formData.Society"
-            #society="ngModel" 
-            name="Society" 
-            type="text" 
-            class="for-control" 
-            id="Society" 
+            #society="ngModel"
+            name="Society"
+            type="text"
+            class="for-control"
+            id="Society"
             size="35"
             required>
             <div *ngIf="society.invalid && (society.dirty || society.touched)"
@@ -74,26 +74,26 @@
 
           <div class="form-group">
             <label for="password">Password</label><br>
-            <input [(ngModel)]="formData.password" 
-            name="password" 
-            type="password" 
-            class="for-control" 
-            id="password" 
+            <input [(ngModel)]="formData.password"
+            name="password"
+            type="password"
+            class="for-control"
+            id="password"
             size="35"
             required>
-            
+
           </div>
 
           <div class="form-group">
             <label for="passwordConfirmation">Confirm Password</label><br>
-            <input [(ngModel)]="formData.passwordConfirmation" 
-            name="passwordConfirmation" 
-            type="password" 
-            class="for-control" 
-            id="passwordConfirmation" 
+            <input [(ngModel)]="formData.passwordConfirmation"
+            name="passwordConfirmation"
+            type="password"
+            class="for-control"
+            id="passwordConfirmation"
             size="35"
             required>
-            
+
           </div>
           <button [disabled]="!registerForm.form.valid" (click)="register()" type="submit" class="btn btn-primary float-right" >Submit</button>
         </form>
@@ -102,11 +102,11 @@
             {{error.detail}}
           </p>
         </div>
-        
+
       </div>
-      
+
     </div>
   </div>
-  
+
 </section>
 

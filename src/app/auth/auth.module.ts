@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { AuthComponent } from './auth.component';
 import { RegisterComponent } from './register/register.component';
 import { CommonModule } from '@angular/common';
-import {AuthService} from './shared/auth.service';
+import {AuthService} from '../services/auth.service';
 import { AuthGuard } from './shared/auth.guard';
 import { TokenInterceptor} from './shared/token.interceptor';
+import {environment} from '../../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent} //, canActivate: [AuthGuard]
@@ -17,23 +21,19 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AuthComponent
   ],
   imports: [
     RouterModule.forChild(routes),
     FormsModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireAuthModule
   ],
   providers: [
     AuthService,
-    AuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
   ],
-  
+
 })
 export class AuthModule { }
