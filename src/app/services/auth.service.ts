@@ -57,4 +57,32 @@ export class AuthService {
     await this.afAuth.auth.signOut();
     this.router.navigate(['/']);
   }
+
+  emailSignUp(email: string, password: string){
+    this.afAuth.auth.createUserWithEmailAndPassword(email,password).then(user =>{
+        return this.afs.collection('userProfiles').add(user);
+    });
+  }
+  // emailSignUp(email: string, password: string) {
+  //   return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+  //     .then(user => {
+  //       return this.setUserDoc(user) // create initial user document
+  //     })
+  //     .catch(error => this.handleError(error) );
+  // }
+
+  // // Update properties on the user document
+  // updateUser(user: User, data: any) {
+  //   return this.afs.doc(`users/${user.uid}`).update(data)
+  // }
+
+
+
+  // // If error, console log and notify user
+  // private handleError(error) {
+  //   console.error(error)
+  //   this.notify.update(error.message, 'error')
+  // }
+
+
 }

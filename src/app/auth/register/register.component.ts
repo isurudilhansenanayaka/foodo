@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../shared/auth.service';
+import { AuthService } from '../../services/auth.service';
 import {Router} from "@angular/router";
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'bwm-register',
   templateUrl: './register.component.html',
@@ -10,15 +11,18 @@ export class RegisterComponent implements OnInit {
 
   formData: any= {};
   errors: any[] = [];
+  mail: string = '';
+  password: string = '';
 
-   constructor(
-              private router: Router) { }
+   constructor(private router: Router, private afs:AuthService) { }
 
   ngOnInit() {
-    
+
   }
-  register(){
-    console.log(this.formData);
+  register(f: NgForm){
+    this.mail = f.controls['email'].value;
+    this.password = f.controls['password'].value;
+    this.afs.emailSignUp(this.mail, this.password);
 /*
     this.auth.register(this.formData).subscribe(
       () => {
@@ -28,5 +32,5 @@ export class RegisterComponent implements OnInit {
         this.errors = errorResponse.error.errors;
       })*/
   }
-  
+
 }

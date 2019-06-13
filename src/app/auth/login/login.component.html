@@ -1,7 +1,20 @@
-<!--
-<section id="login">
-  <div class="bwm-form">
-    <div class="row">
+ <section id="login">
+  <div class="bwm-form"> -->
+<pre>
+<div *ngIf="auth.user$ | async as user; else login">
+
+  {{ user | json }}
+
+<hr>
+<button class="button" (click)="auth.signOut()">Sign Out</button>
+</div>
+
+<ng-template #login>
+  <button class="button" (click)="auth.googleSignin()">Login with google</button>
+</ng-template>
+</pre>
+
+  <div class="row">
       <div class="col-md-5">
         <h1 class="page-title">Login</h1>
         <div *ngIf="notifyMessage" class="alert alert-success">{{notifyMessage}}</div>
@@ -47,14 +60,5 @@
     </div>
   </div>
 </section>
--->
 
-<div *ngIf="auth.user$ | async as user; else login">
-  {{ user | json }}
-<hr>
-<button class="button" (click)="auth.signOut()">Sign Out</button>
-</div>
 
-<ng-template #login>
-  <button class="button" (click)="auth.googleSignin()">Login with google</button>
-</ng-template>
