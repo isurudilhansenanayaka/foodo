@@ -1,9 +1,24 @@
-<!--
-<section id="login">
+ <section id="login">
   <div class="bwm-form">
-    <div class="row">
+      <h1 class="page-title">Login</h1>
+      <pre>
+          <div *ngIf="auth.user$ | async as user; else login">
+
+            {{ user | json }}
+
+          <hr>
+          <button class="button" (click)="auth.signOut()">Sign Out</button>
+          </div>
+
+          <ng-template #login>
+            <button class="btn btn-bwm" (click)="auth.googleSignin()">Login with google</button>
+          </ng-template>
+          </pre>
+<h4 style align=center>OR</h4>
+
+  <div class="row">
       <div class="col-md-5">
-        <h1 class="page-title">Login</h1>
+        <!-- <h1 class="page-title">Login</h1> -->
         <div *ngIf="notifyMessage" class="alert alert-success">{{notifyMessage}}</div>
         <form [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="form-group">
@@ -47,14 +62,5 @@
     </div>
   </div>
 </section>
--->
 
-<div *ngIf="auth.user$ | async as user; else login">
-  {{ user | json }}
-<hr>
-<button class="button" (click)="auth.signOut()">Sign Out</button>
-</div>
 
-<ng-template #login>
-  <button class="button" (click)="auth.googleSignin()">Login with google</button>
-</ng-template>
