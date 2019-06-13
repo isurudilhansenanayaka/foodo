@@ -5,85 +5,76 @@
           <div class="col-md-6">
               <p class="text-primary">Food Id:- {{item.id}}</p>
             <img src="/assets/image/download.jpg" height="300px" width="500px" alt="">
+            <div class="details-section">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="item">
+                      
+                      <h1 class="item-title">{{item.title| uppercase}}</h1>
+                      <h2 class="item-city">city:- <span class="text-success">{{item.city}}</span></h2>
+                      
+                      
+                     
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    
+                  </div>
+                </div>
+              </div> 
+      <div class="row">
+       <div class="col-md-6">
+          <p class="text-success">
+            <span class="glyphicon glyphicon-calendar"></span>
+            <span class="text-dark"> Expired Date:- </span>
+            <span class="text-white bg-dark" >{{item.expiredAt}}</span>
+          </p>
+          <p class="text-success">
+            <span class="glyphicon glyphicon-time"></span>
+            <span class="text-dark"> Expired Time:- </span>
+            <span class="text-white bg-dark">{{item.expiredTime}}</span>
+          </p>
+      
+          <p class="text-success"> 
+            <span class="glyphicon glyphicon-pushpin"></span>
+            <span class="text-dark"> Our Location:- </span>
+            {{item.street}}
+          </p>
+      
+          <p class="text-success">
+            <span class="glyphicon glyphicon-send"></span>
+            <span class="text-dark"> Description:-</span>
+            {{item.description}}
+          </p>
+          <div class="card">
+              <span class="text-dark"> Quantity:-</span>
+              <div class="card-body text-center d-flex justify-content-center align-items-center flex-column">
+            <ng-number-picker class="btn btn-success btn-sm" [(value)]="value" max=10 ></ng-number-picker>
+          </div>
+        </div>
+          
+      </div>
+      
+      </div>
           </div>
           <div class="col-md-6">
               <p class="text-primary">Food Id:- {{item.id}}</p>
             <bwm-map [location]="item.city+','+item.street"></bwm-map>
+            <div class="col-md-8">
+                <h2 class="item-city"><span class="text-dark">{{item.city}} , {{item.street}}</span></h2>
+                
+                <bwm-item-detail-order>[item]="item"</bwm-item-detail-order>
+              </div>
           </div>
         </div>
       </div>
 
-      <div class="details-section">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="item">
-                
-                <h1 class="item-title">{{item.title| uppercase}}</h1>
-                <h2 class="item-city">city:- <span class="text-success">{{item.city}}</span></h2>
-                
-                
-               
-              </div>
-            </div>
-            
-          </div>
-          <div class="row">
-            <div class="col-md-8">
-              
-            </div>
-          </div>
-        </div> 
-<div class="row">
- <div class="col-md-6">
-    <p class="text-success">
-      <span class="glyphicon glyphicon-calendar"></span>
-      <span class="text-dark"> Expired Date:- </span>
-      <span class="text-white bg-dark" >{{item.expiredAt}}</span>
-    </p>
-    <p class="text-success">
-      <span class="glyphicon glyphicon-time"></span>
-      <span class="text-dark"> Expired Time:- </span>
-      <span class="text-white bg-dark">{{item.expiredTime}}</span>
-    </p>
+      
 
-    <p class="text-success"> 
-      <span class="glyphicon glyphicon-pushpin"></span>
-      <span class="text-dark"> Our Location:- </span>
-      {{item.street}}
-    </p>
-
-    <p class="text-success">
-      <span class="glyphicon glyphicon-send"></span>
-      <span class="text-dark"> Description:-</span>
-      {{item.description}}
-    </p>
-    <ng-number-picker  [(value)]="value" max=10 ></ng-number-picker>
-</div>
-
-</div>
-<div class="container">
-    <div class="row">
-      <div class="col-lg-2">
-                      <div class="input-group">
-                  <span class="input-group-btn">
-                      <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                        <span class="glyphicon glyphicon-minus"></span>
-                      </button>
-                  </span>
-                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="0" min="1" max="100">
-                  <span class="input-group-btn">
-                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                          <span class="glyphicon glyphicon-plus"></span>
-                      </button>
-                      <br>
-                  </span>
-                </div>
-
-      </div>
-    </div>
-  </div><br> <div class="col-md-8">
-    <bwm-item-detail-order>[item]="item"</bwm-item-detail-order>
-  </div>
+  <br> 
 
 <script src="js/incrementing.js">
 

@@ -10,18 +10,22 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import {ItemModule} from './item/item.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ContactComponent } from './contact/contact.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'items', pathMatch: 'full'},
+  {path: 'contact', component: ContactComponent}
 ];
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContactComponent
 
 
 
