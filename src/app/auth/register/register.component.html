@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-5">
         <h1 class="page-title" align="center">Register</h1>
-        <form  #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <form  #registerForm="ngForm">
           <div class="form-group">
             <label for="username">Username</label><br>
             <input [(ngModel)]="formData.username"
@@ -46,12 +46,20 @@
           <div class="form-group">
             <label for="contact">Contact</label><br>
             <input [(ngModel)]="formData.contact"
+            #contact="ngModel"
             name="contact"
             type="tel"
             class="for-control"
             id="contact"
             size="35"
             required>
+            <div *ngIf="contact.invalid && (contact.dirty || contact.touched)"
+                 class="alert alert-danger">
+
+              <div *ngIf="contact.errors.required">
+                  Contact is required.
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <label for="Society">Restaurant/Society Name</label><br>
@@ -75,24 +83,42 @@
           <div class="form-group">
             <label for="password">Password</label><br>
             <input [(ngModel)]="formData.password"
+            #password="ngModel"
             name="password"
             type="password"
             class="for-control"
             id="password"
             size="35"
-            required>
+            pattern=".{8,}"   required title="8 characters minimum"
+            >
+            <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                 class="alert alert-danger">
 
+              <div *ngIf="password.errors.required">
+                  Password is required.
+              </div>
+              
+              
+            </div>
           </div>
 
           <div class="form-group">
             <label for="passwordConfirmation">Confirm Password</label><br>
             <input [(ngModel)]="formData.passwordConfirmation"
+            #passwordConfirmation="ngModel"
             name="passwordConfirmation"
             type="password"
             class="for-control"
             id="passwordConfirmation"
             size="35"
-            required>
+            required><div *ngIf="passwordConfirmation.invalid && (passwordConfirmation.dirty || passwordConfirmation.touched)"
+            class="alert alert-danger">
+
+         <div *ngIf="passwordConfirmation.errors.required">
+            Password Confirmation is required.
+         </div>
+         
+       </div>
 
           </div>
           <button [disabled]="!registerForm.form.valid" (click)="register()" type="submit" class="btn btn-primary float-right" >Submit</button>

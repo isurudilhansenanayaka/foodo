@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import {Router} from "@angular/router";
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl } from '@angular/forms';
+import { EmailValidation, PasswordValidation, RepeatPasswordEStateMatcher } from './validation';
+
 @Component({
   selector: 'bwm-register',
   templateUrl: './register.component.html',
@@ -14,7 +16,9 @@ export class RegisterComponent implements OnInit {
   mail: string = '';
   password: string = '';
 
-   constructor(private router: Router, private afs:AuthService) { }
+   constructor(private router: Router, private afs:AuthService) {
+      
+   }
 
   ngOnInit() {
 

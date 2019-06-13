@@ -9,27 +9,28 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
+          <div class="nav-item dropdown" clickable>
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Owner Section
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" routerLink="/items/new" >Create Item</a>
+              </div>
+            </div>
           <ng-container>
               <li class="nav-item">
-                  <a class="nav-link" routerLink="/contact">Contact Us</a>
+                  <a class="nav-link" routerLink="/contact">  Contact Us  </a>
                 </li>
           </ng-container>
         <ng-container>
           <li class="nav-item active">
-            <a class="nav-link" routerLink="/login">LogIn <span class="sr-only">(current)</span></a>
+            <a class="nav-link" routerLink="/login"> LogIn <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/register">Register</a>
+            <a class="nav-link" routerLink="/register">   Register</a>
           </li> 
       </ng-container>
-      <div class="nav-item dropdown" clickable>
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Owner Section
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" routerLink="/items/new" >Create Item</a>
-        </div>
-      </div>
+      
 
 
 
