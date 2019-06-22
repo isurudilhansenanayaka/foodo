@@ -4,85 +4,77 @@
     <div class="row">
       <div class="col-md-5">
         <h1 class="page-title" align="center">Register</h1>
-        <form  #registerForm="ngForm">
+        <form  #form="ngForm" (submit)="onSubmit(form)">
           <div class="form-group">
-            <label for="username">Username</label><br>
-            <input [(ngModel)]="formData.username"
-            #username="ngModel"
-            name="username"
+            <label for="userName">userName</label><br>
+            <input [(ngModel)]="service.formData.userName"
+            #userName="ngModel"
+            name="userName"
             type="text"
             class="for-control"
-            id="username"
+            id="userName"
             size="35"
             required>
-          <div *ngIf="username.invalid && (username.dirty || username.touched)"
-          class="alert alert-danger">
+          <div *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+          class="alert alert-danger">userName is required.
 
-          <div *ngIf="username.errors.required">
-            Username is required.
-          </div>
+          
         </div>
           </div>
 
           <div class="form-group">
-            <label for="email">Email</label><br>
-            <input [(ngModel)]="formData.email"
+            <label for="email" data-error="Invalid email!">Email</label><br>
+            <input [(ngModel)]="service.formData.email"
             #email="ngModel"
             name="email"
             type="email"
             class="for-control"
             id="email"
             size="35"
-            required>
+            [pattern]="emailPattern"
+            required> 
             <div *ngIf="email.invalid && (email.dirty || email.touched)"
-          class="alert alert-danger">
+          class="alert alert-danger"> Email is required.
 
-          <div *ngIf="email.errors.required">
-            Email is required.
-          </div>
+          
         </div>
           </div>
 
           <div class="form-group">
-            <label for="contact">Contact</label><br>
-            <input [(ngModel)]="formData.contact"
-            #contact="ngModel"
-            name="contact"
+            <label for="phoneNumber">phone Number</label><br>
+            <input [(ngModel)]="service.formData.phoneNumber"
+            #phoneNumber="ngModel"
+            name="phoneNumber"
             type="tel"
             class="for-control"
-            id="contact"
+            id="phoneNumber"
             size="35"
             required>
-            <div *ngIf="contact.invalid && (contact.dirty || contact.touched)"
-                 class="alert alert-danger">
+            <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
+                 class="alert alert-danger">phoneNumber is required.
 
-              <div *ngIf="contact.errors.required">
-                  Contact is required.
-              </div>
             </div>
           </div>
           <div class="form-group">
-            <label for="Society">Restaurant/Society Name</label><br>
-            <input [(ngModel)]="formData.Society"
-            #society="ngModel"
-            name="Society"
+            <label for="displayName">Restaurant/displayName Name</label><br>
+            <input [(ngModel)]="service.formData.displayName"
+            #displayName="ngModel"
+            name="displayName"
             type="text"
             class="for-control"
-            id="Society"
+            id="displayName"
             size="35"
             required>
-            <div *ngIf="society.invalid && (society.dirty || society.touched)"
-                 class="alert alert-danger">
+            <div *ngIf="displayName.invalid && (displayName.dirty || displayName.touched)"
+                 class="alert alert-danger">displayName is required.
 
-              <div *ngIf="society.errors.required">
-                Society is required.
-              </div>
+              
             </div>
           </div>
 
           <div class="form-group">
             <label for="password">Password</label><br>
-            <input [(ngModel)]="formData.password"
+            <input [(ngModel)]="service.formData.password"
             #password="ngModel"
             name="password"
             type="password"
@@ -92,11 +84,9 @@
             pattern=".{8,}"   required title="8 characters minimum"
             >
             <div *ngIf="password.invalid && (password.dirty || password.touched)"
-                 class="alert alert-danger">
+                 class="alert alert-danger">Password is required.
 
-              <div *ngIf="password.errors.required">
-                  Password is required.
-              </div>
+              
               
               
             </div>
@@ -104,7 +94,7 @@
 
           <div class="form-group">
             <label for="passwordConfirmation">Confirm Password</label><br>
-            <input [(ngModel)]="formData.passwordConfirmation"
+            <input [(ngModel)]="service.formData.passwordConfirmation"
             #passwordConfirmation="ngModel"
             name="passwordConfirmation"
             type="password"
@@ -112,11 +102,9 @@
             id="passwordConfirmation"
             size="35"
             required><div *ngIf="passwordConfirmation.invalid && (passwordConfirmation.dirty || passwordConfirmation.touched)"
-            class="alert alert-danger">
+            class="alert alert-danger">Password Confirmation is required.
 
-         <div *ngIf="passwordConfirmation.errors.required">
-            Password Confirmation is required.
-         </div>
+         
          
        </div>
 

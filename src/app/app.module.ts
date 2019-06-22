@@ -11,6 +11,11 @@ import {ItemModule} from './item/item.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ContactComponent } from './contact/contact.component';
+import {UserProfilesService } from './auth/shared/user-profiles.service';
+import { FormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
 
 
 const routes: Routes = [
@@ -40,9 +45,12 @@ const routes: Routes = [
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [UserProfilesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
