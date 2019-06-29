@@ -2,10 +2,10 @@
  (mapReady)="mapReadyHandler" 
  [latitude]="lat" 
  [longitude]="lng"
- [zoom]="13">
-    <agm-circle *ngIf="isPositionError && lat && lng"
-    [latitude]="0" 
-    [longitude]="0"
+ [zoom]="14">
+    <agm-circle *ngIf="lat && lng"
+    [latitude]="lat" 
+    [longitude]="lng"
     
     [fillOpacity]="0.4"
     >
@@ -19,5 +19,6 @@
   jjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
   lllllllllllll.
 </agm-info-window>
-  </agm-map>
+<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
   

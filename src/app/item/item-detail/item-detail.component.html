@@ -1,20 +1,18 @@
-<section id="itemDetails" *ngIf="item">
+<section id="itemDetails" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <div >
         <div class="row">
-          <div class="col-md-6">
-              <p class="text-primary">Food Id:- {{item.id}}</p>
-            <img src="/assets/image/download.jpg" height="300px" width="500px" alt="">
+          <div class="col-md-6" *ngIf="item!=null">
+            <img src="{{item.photoUrl}}" height="300px" width="500px" alt="">
             <div class="details-section">
                 <div class="row">
                   <div class="col-md-8">
                     <div class="item">
                       
                       <h1 class="item-title">{{item.title| uppercase}}</h1>
-                      <h2 class="item-city">city:- <span class="text-success">{{item.city}}</span></h2>
+                      <!-- <div *ngIf="item.city!=null"><h2 class="item-city">city:- <span class="text-success">{{item.city}}</span></h2></div>
                       
-                      
-                     
+                       -->                     
                     </div>
                   </div>
                   
@@ -35,13 +33,13 @@
           <p class="text-success">
             <span class="glyphicon glyphicon-time"></span>
             <span class="text-dark"> Expired Time:- </span>
-            <span class="text-white bg-dark">{{item.expiredTime}}</span>
+            <span class="text-white bg-dark">{{item.expirePeriod}}</span>
           </p>
       
           <p class="text-success"> 
             <span class="glyphicon glyphicon-pushpin"></span>
-            <span class="text-dark"> Our Location:- </span>
-            {{item.street}}
+            <span class="text-dark"> Our pickupDetails:- </span>
+            {{item.pickupDetails}}
           </p>
       
           <p class="text-success">
@@ -52,7 +50,7 @@
           <div class="card">
               <span class="text-dark"> Quantity:-</span>
               <div class="card-body text-center d-flex justify-content-center align-items-center flex-column">
-            <ng-number-picker class="btn btn-success btn-sm" [(value)]="value" max=10 ></ng-number-picker>
+            <!-- <ng-number-picker class="btn btn-success btn-sm" [(value)]="value" max=10 ></ng-number-picker> -->
           </div>
         </div>
           
@@ -61,12 +59,12 @@
       </div>
           </div>
           <div class="col-md-6">
-              <p class="text-primary">Food Id:- {{item.id}}</p>
-            <bwm-map [location]="item.city+','+item.street"></bwm-map>
+              <!-- <p class="text-primary">Food Id:- {{item.id}}</p> -->
+            <bwm-map></bwm-map>
             <div class="col-md-8">
-                <h2 class="item-city"><span class="text-dark">{{item.city}} , {{item.street}}</span></h2>
-                
-                <bwm-item-detail-order>[item]="item"</bwm-item-detail-order>
+                <!-- <h2 class="item-city"><div *ngIf="item.city!=null"><span class="text-dark">{{item.city}}</span></div></h2>
+                 -->
+                <bwm-item-detail-order [item]="item"></bwm-item-detail-order>
               </div>
           </div>
         </div>
@@ -76,7 +74,5 @@
 
   <br> 
 
-<script src="js/incrementing.js">
 
-</script>
 </section>

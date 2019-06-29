@@ -14,7 +14,7 @@ export class ItemCreateComponent implements OnInit {
 
   ngOnInit() {
     this.newItem= new item();
-    this.newItem.shared= false;
+   
   }
 
 }

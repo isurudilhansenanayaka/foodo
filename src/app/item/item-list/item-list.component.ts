@@ -8,21 +8,21 @@ import { item } from '../shared/item.module';
   styleUrls: ['./item-list.component.css']
 })
 export class ItemListComponent implements OnInit {
-  items: item[] = [];
+  items:any;
 
   constructor(private itemService: ItemService) { }
 
-  ngOnInit() {
-    const itemObservable=this.itemService.getItems();
-    itemObservable.subscribe(
-      (items: item[])=>{
-        this.items=items;
-      },
-      (err)=>{
+  ngOnInit() {  
+    this.itemService.getAllitem().subscribe(data=>{
+      this.items=data.map(item=>{
+        return {
+          id:item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+      });
+      
+      console.log(this.items);
+    });
 
-      },
-      ()=>{}
-   );
-  }
-
+}
 }

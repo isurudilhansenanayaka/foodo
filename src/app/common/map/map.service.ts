@@ -40,7 +40,7 @@ private locationCache: any = {};
 		});
 	}
 
-	public getGeoLocation(location: String): Observable<any> {
+	public getGeoLocation(location: any): Observable<any> {
 
 		if (this.isLocationCached(location)) {
 			return observableOf(this.locationCache[this.camelize(location)]);

@@ -1,15 +1,12 @@
 export class item{
-    id: String;
-    donor: String;
+    uploadLongitude: String;
+    uploadLatitude: String;
     title: String;
     city: String;
-    street: String;
+    pickupDetails: String;
     category: String;
-    image: String;
-    quantity: number;
+    photoUrl: String;
     description: String;
-    dailyRate: number;
-    shared: boolean;
-    expiredAt: String;
-    expiredTime: String;
+    uploadTime: String;
+    id: String;
 }
