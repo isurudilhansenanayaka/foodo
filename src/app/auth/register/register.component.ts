@@ -15,8 +15,8 @@ import { ToastrService } from 'ngx-toastr';
 export class RegisterComponent implements OnInit {
 
   
-
-   constructor(private router: Router, 
+  formData:any= {};
+   constructor(
     private afs:AuthService, 
     private service:UserProfilesService,
     private firestore: AngularFirestore,

@@ -16,7 +16,7 @@
             size="35"
             required>
           <div *ngIf="userName.invalid && (userName.dirty || userName.touched)"
-          class="alert alert-danger">userName is required.
+          class="alert alert-danger">User Name is required.
 
           
         </div>
@@ -51,26 +51,11 @@
             size="35"
             required>
             <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
-                 class="alert alert-danger">phoneNumber is required.
+                 class="alert alert-danger">Phone Number is required.
 
             </div>
           </div>
-          <div class="form-group">
-            <label for="displayName">Restaurant/displayName Name</label><br>
-            <input [(ngModel)]="service.formData.displayName"
-            #displayName="ngModel"
-            name="displayName"
-            type="text"
-            class="for-control"
-            id="displayName"
-            size="35"
-            required>
-            <div *ngIf="displayName.invalid && (displayName.dirty || displayName.touched)"
-                 class="alert alert-danger">displayName is required.
-
-              
-            </div>
-          </div>
+          
 
           <div class="form-group">
             <label for="password">Password</label><br>
@@ -109,9 +94,9 @@
        </div>
 
           </div>
-          <button [disabled]="!registerForm.form.valid" (click)="register()" type="submit" class="btn btn-primary float-right" >Submit</button>
+          <button  (click)="register()" type="submit" class="btn btn-primary float-right" >Submit</button>
         </form>
-        <div *ngIf="errors.length > 0" class="alert alert-danger">
+        <div >
           <p *ngFor="let error of errors">
             {{error.detail}}
           </p>
