@@ -16,6 +16,7 @@ import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  
 import { ToastrModule } from 'ngx-toastr';
+import { ItemAddService } from './shared/itemadd.service';
 
 
 const routes: Routes = [

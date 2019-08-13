@@ -3,8 +3,10 @@ import { item } from '../shared/item.module';
 import { ItemService } from '../shared/item.service';
 import { MapSevice } from 'src/app/common/map/map.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ItemAddService } from '../../shared/itemadd.service';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'bwm-item-create',
   templateUrl: './item-create.component.html',
@@ -13,10 +15,11 @@ import { NgForm } from '@angular/forms';
 export class ItemCreateComponent implements OnInit {
   newItem: item;
   errors: any[] =[];
-  constructor(private firestore: AngularFirestore,private itemService: ItemService) { }
+  formData:any= {};
+  constructor(private firestore: AngularFirestore,private toastr: ToastrService, private itemadd: ItemAddService, private mapservice: MapSevice) { }
 
   ngOnInit() {
-    this.newItem= new item();
+    this.resetForm();
    
   }
   resetForm(form? : NgForm){
@@ -30,11 +33,12 @@ export class ItemCreateComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
+    console.log("return");
     let data = form.value;
     this.firestore.collection('Items').add(data);
     this.resetForm(form);
     
-    
+   this.toastr.success('Submitted successfully');
     
   }
 

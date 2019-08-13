@@ -10,7 +10,9 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { AuthGuard } from '../auth/shared/auth.guard';
 import { ItemDetailOrderComponent } from './item-detail/item-detail-order/item-detail-order.component';
 import {NumberPickerModule} from 'ng-number-picker';
+import { FormsModule } from "@angular/forms";
 import { ItemCreateComponent } from './item-create/item-create.component';
+import { ItemAddService } from '../shared/itemadd.service';
 const routes: Routes=[
     {path: 'items',
      component: ItemComponent,
@@ -35,8 +37,9 @@ const routes: Routes=[
     imports: [CommonModule,
     RouterModule.forChild(routes),
     NumberPickerModule,
+    FormsModule,
     MapModule
 ],
-    providers: [ItemService]
+    providers: [ItemAddService]
 })
 export class ItemModule{}
