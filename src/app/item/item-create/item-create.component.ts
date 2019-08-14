@@ -35,7 +35,7 @@ export class ItemCreateComponent implements OnInit {
   onSubmit(form: NgForm){
     console.log("return");
     let data = form.value;
-    this.firestore.collection('Items').add(data);
+    this.firestore.collection('FoodItems').add(data);
     this.resetForm(form);
     
    this.toastr.success('Submitted successfully');

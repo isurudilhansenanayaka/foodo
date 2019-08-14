@@ -12,8 +12,8 @@ export class MapComponent implements OnInit {
   item:any;
   @Input()location: String;
   isPositionError: boolean=false;
-  lat: number ;
-  lng: number ;
+  lat: String ;
+  lng: String ;
   constructor(private mapService: MapSevice,private route: ActivatedRoute,
     private itemService: ItemService,
               private ref:ChangeDetectorRef)

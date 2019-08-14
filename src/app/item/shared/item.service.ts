@@ -14,10 +14,10 @@ export class ItemService{
   constructor(private firestore:AngularFirestore) { }
 
   getitem(id:any){
-    return this.firestore.collection('Items').doc(id).valueChanges();
+    return this.firestore.collection('FoodItm').doc(id).valueChanges();
   }
 
   getAllitem(){
-    return this.firestore.collection('Items').snapshotChanges();
+    return this.firestore.collection('FoodItm').snapshotChanges();
   }
 }
