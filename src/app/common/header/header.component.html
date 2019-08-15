@@ -23,14 +23,14 @@
                 </li>
           </ng-container>
         <ng-container>
-          <li class="nav-item active">
+          <li class="nav-item active" *ngIf=!user>
             <a class="nav-link" routerLink="/login"> LogIn <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf=!user>
             <a class="nav-link" routerLink="/register">   Register</a>
-          </li> 
+          </li>
       </ng-container>
-      
+
 
 
 
@@ -39,7 +39,7 @@
       <li class="nav-item"><!-- *ngIf="!auth-->
           <a class="nav-link" ><!--{{auth.getUsername()}}--></a>
         </li>
-      <li class="nav-item">
+      <li class="nav-item" (click)="auth.signOut()" *ngIf=user>
           <a class="nav-link" >Logout</a>
         </li>
       </ul>
