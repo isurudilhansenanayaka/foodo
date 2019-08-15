@@ -1,24 +1,23 @@
- <section id="login">
-  <div class="bwm-form">
-      <h1 class="page-title">Login</h1>
-      <pre>
-          <div *ngIf="auth.user$ | async as user; else login">
+<section id="login">
+<div class="bwm-form">
+    <h1 class="page-title">Login to your account</h1>
+    <pre>
+        <div *ngIf="auth.user$ | async as user; else login">
 
-            {{ user | json }}
+        <hr>
+        <button class="button" (click)="auth.signOut()">Sign Out</button>
+        </div>
 
-          <hr>
-          <button class="button" (click)="auth.signOut()">Sign Out</button>
-          </div>
-
-          <ng-template #login>
-            <button class="btn btn-bwm" (click)="auth.googleSignin()">Login with google</button>
-          </ng-template>
-          </pre>
+        <ng-template #login >
+          <button class="btn btn-bwm"  (click)="auth.googleSignin()">Login with google</button>
+        </ng-template>
+        </pre>
 <h4 style align=center>OR</h4>
+<br><br><br>
 
-  <div class="row">
+  <!-- <div class="row">
       <div class="col-md-5">
-        <!-- <h1 class="page-title">Login</h1> -->
+        <!-- <h1 class="page-title">Login</h1>
         <div *ngIf="notifyMessage" class="alert alert-success">{{notifyMessage}}</div>
         <form [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="form-group">
@@ -59,7 +58,15 @@
 
       </div>
 
-    </div>
+    </div> -->
+
+    <form autocomplete="off" novalidate  [formGroup]="form" (submit)="login()">
+      <input type="email" name="user" placeholder="Email address" formControlName="email" class="row">
+      <input type="password" name="pass" placeholder="Password" formControlName="password" class="row">
+      <input type="submit" name="login" placeholder="login loginmodal-submit" value="Login" class="row">
+    </form>
+
+
   </div>
 </section>
 

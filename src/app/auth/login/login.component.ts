@@ -8,8 +8,23 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent{
-  constructor(public auth: AuthService) {
+export class LoginComponent implements OnInit{
+  public form: FormGroup;
+ // public ures$= this.auth.ures;
+  constructor(public auth: AuthService, private fb: FormBuilder) {
 
+    this.form = this.fb.group({
+      email: ['', Validators.required ],
+      password : ['', Validators.required ]
+   } );
+  }
+
+  ngOnInit(){
+
+  }
+
+  login(){
+    //const inputValue = this.form.value;
+    //console.log(inputValue.email, inputValue.password);
   }
 }

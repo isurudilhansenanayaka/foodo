@@ -6,18 +6,20 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
+
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   public user$: Observable<User>;
+ //public ures$: Observable<any>;
 
-    constructor( private afAuth: AngularFireAuth,
+    constructor( public afAuth: AngularFireAuth,
       private afs: AngularFirestore,
       private router: Router) {
 
-
+       //this.ures$= afAuth.authState;
       // Get the auth state, then fetch the Firestore user document or return null
       this.user$ = this.afAuth.authState.pipe(
         switchMap(user => {
@@ -35,7 +37,9 @@ export class AuthService {
   async googleSignin() {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.auth.signInWithPopup(provider);
+    this.router.navigate(['/']);
     return this.updateUserData(credential.user);
+
   }
 
   private updateUserData(user) {
@@ -63,26 +67,17 @@ export class AuthService {
         return this.afs.collection('userProfiles').add(user);
     });
   }
+
+  // isAuthenticated(): Observable<boolean>{
+  //  return this.ures$.map(ures$ => ures$ && ures$.uid !== undefined);
+  //  }
+
+
+}
   // emailSignUp(email: string, password: string) {
   //   return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
   //     .then(user => {
   //       return this.setUserDoc(user) // create initial user document
   //     })
   //     .catch(error => this.handleError(error) );
-  // }
 
-  // // Update properties on the user document
-  // updateUser(user: User, data: any) {
-  //   return this.afs.doc(`users/${user.uid}`).update(data)
-  // }
-
-
-
-  // // If error, console log and notify user
-  // private handleError(error) {
-  //   console.error(error)
-  //   this.notify.update(error.message, 'error')
-  // }
-
-
-}
