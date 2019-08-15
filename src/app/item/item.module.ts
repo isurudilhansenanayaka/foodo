@@ -13,6 +13,8 @@ import {NumberPickerModule} from 'ng-number-picker';
 import { FormsModule } from "@angular/forms";
 import { ItemCreateComponent } from './item-create/item-create.component';
 import { ItemAddService } from '../shared/itemadd.service';
+import {AuthService} from '../services/auth.service';
+
 const routes: Routes=[
     {path: 'items',
      component: ItemComponent,
@@ -22,7 +24,7 @@ const routes: Routes=[
          {path: ':itemId', component: ItemDetailComponent} // , canActivate: [AuthGuard]
      ]
     }
-    
+
   ]
 
 @NgModule({

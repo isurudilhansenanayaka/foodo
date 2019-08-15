@@ -1,5 +1,5 @@
 <section id="itemDetails" >
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
     <div >
         <div class="row">
           <div class="col-md-6" *ngIf="item!=null">
@@ -8,21 +8,21 @@
                 <div class="row">
                   <div class="col-md-8">
                     <div class="item">
-                      
+
                       <h1 class="item-title">{{item.title| uppercase}}</h1>
                       <!-- <div *ngIf="item.city!=null"><h2 class="item-city">city:- <span class="text-success">{{item.city}}</span></h2></div>
-                      
-                       -->                     
+
+                       -->
                     </div>
                   </div>
-                  
+
                 </div>
                 <div class="row">
                   <div class="col-md-8">
-                    
+
                   </div>
                 </div>
-              </div> 
+              </div>
       <div class="row">
        <div class="col-md-6">
           <p class="text-success">
@@ -35,13 +35,13 @@
             <span class="text-dark"> Expired Time:- </span>
             <span class="text-white bg-dark">{{item.expirePeriod}}</span>
           </p>
-      
-          <p class="text-success"> 
+
+          <p class="text-success">
             <span class="glyphicon glyphicon-pushpin"></span>
             <span class="text-dark"> Our pickupDetails:- </span>
             {{item.pickupDetails}}
           </p>
-      
+
           <p class="text-success">
             <span class="glyphicon glyphicon-send"></span>
             <span class="text-dark"> Description:-</span>
@@ -53,9 +53,9 @@
             <!-- <ng-number-picker class="btn btn-success btn-sm" [(value)]="value" max=10 ></ng-number-picker> -->
           </div>
         </div>
-          
+
       </div>
-      
+
       </div>
           </div>
           <div class="col-md-6">
@@ -70,9 +70,9 @@
         </div>
       </div>
 
-      
 
-  <br> 
+
+  <br>
 
 
 </section>

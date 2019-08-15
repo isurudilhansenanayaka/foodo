@@ -1,17 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'bwm-item-list-item',
   templateUrl: './item-list-item.component.html',
   styleUrls: ['./item-list-item.component.css']
 })
-export class ItemListItemComponent implements OnInit {
+export class ItemListItemComponent {
 
 @Input() item: any;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+public user;
+  constructor(public auth: AuthService) {
+    this.auth.afAuth.authState.subscribe(
+      user=>
+       {this.user = user;
+         console.log(this.user);}
+     );
+   }
 
 }
