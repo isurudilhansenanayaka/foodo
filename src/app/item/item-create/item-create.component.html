@@ -1,26 +1,23 @@
-<section id="newItem">
+<section id="newItem"> <!--Named the sectoin as newItem-->
   <div class="bwm-form">
     <div class="row">
       <div class="col-md-5">
         <h1 class="page-title">Create Item</h1>
-        <form #form="ngForm" (submit)="onSubmit(form)">
-          
-
-          <div class="form-group">
+        <form #form="ngForm" (submit)="onSubmit(form)">   <!--create  a form and call to onSubmit function-->
+        
+          <div class="form-group">    <!--food name feild using form-group-->
             <label for="foodname">Food Name</label>
-            <input [(ngModel)]="itemadd.formData.foodname"
-                  #foodname="ngModel"
+            <input [(ngModel)]="itemadd.formData.foodname" 
+                   #foodname="ngModel"
                    type="text"
                    class="form-control"
                    id="foodname"
-                   name="foodname"
-                   
+                   name="foodname"                 
                    required>
-                   <div *ngIf="foodname.invalid && (foodname.dirty || foodname.touched)"
-          class="alert alert-danger">Food Name is required.
-
-          
-        </div>
+                    <div *ngIf="foodname.invalid && (foodname.dirty || foodname.touched)"        
+                          class="alert alert-danger">Food Name is required.
+                    </div>
+                    <!--ngModel data passs using formData model to itemadd array-->
           </div>
 
           <div class="form-group">
@@ -31,26 +28,23 @@
                    name="image"
                    class="form-control"
                    id="image"
-                   
                    placeholder="Upload file..."
                    required>
-
-                   
-                   <div *ngIf="image.invalid && (image.dirty || image.touched)"
-          class="alert alert-danger">Image is required.
-        </div>
+                    <div *ngIf="image.invalid && (image.dirty || image.touched)"
+                          class="alert alert-danger">Image is required.
+                    </div>
+                    <!--ngModel data passs using formData model to itemadd array-->
           </div>
           
         <div class="form-group" >
           <label class="icon-map-marker" for="location">Location</label>
-          
           <!--<bwm-map></bwm-map-->>
         </div>
 
           
           <div class="form-group">
               <label for="date">Date</label>
-          <input [(ngModel)]="itemadd.formData.date"  
+              <input [(ngModel)]="itemadd.formData.date"  
                   class="form-control"
                   #date="ngModel"
                  type="text"  

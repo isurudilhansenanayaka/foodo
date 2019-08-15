@@ -12,8 +12,8 @@ export class MapComponent implements OnInit {
   item:any;
   @Input()location: String;
   isPositionError: boolean=false;
-  lat: String ;
-  lng: String ;
+  lat: Number ;
+  lng: Number ;
   constructor(private mapService: MapSevice,private route: ActivatedRoute,
     private itemService: ItemService,
               private ref:ChangeDetectorRef)
@@ -23,8 +23,8 @@ export class MapComponent implements OnInit {
     this.route.params.subscribe(params=>{
       this.itemService.getitem(params["itemId"]).subscribe(data=>{
         this.item=data;
-        this.lat= data["uploadLatitude"],
-        this.lng= data["uploadLongitude"];
+        this.lat= Number(data["uploadLatitude"]),
+        this.lng= Number(data["uploadLongitude"]);
       })
     }
   );

@@ -9,7 +9,7 @@
       pattern="[0-9]{2}:[0-9]{2}" value="20:00">
       
    
-    <button (click)="openConfirmModal(content)" class="btn btn-danger btn-confirm btn-block">Order place now</button>
+    <button (click)="openConfirmModal(content)" class="btn btn-danger btn-confirm btn-block" routerLink="">Order place now</button>
     <hr>
   
  
@@ -20,20 +20,20 @@
 </div>
 
 
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Confirm Order <p></p></h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true"></span>
-    </button>
+<ng-template #content let-c="close" let-d="dismiss" class="text-warning">
+  <div class="modal-header" class="p-3 mb-2 bg-dark text-white">
+    <h4 class="modal-title" class="p-3 mb-2 bg-dark text-white">Confirm Order <p></p></h4>
+    
   </div>
-  <div class="modal-body">
+  <div class="modal-body"class="p-3 mb-2 bg-light text-dark">
     
     
     <p>Do you confirm ?</p>
   </div>
+  
+  
   <div class="modal-footer">
-    
-    <button type="button" class="btn btn-bwm" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary"  (click)="c('Close click')">Confirm</button>
+    <button type="button" class="btn btn-danger"  (click)="c('Close click')">Close</button>
   </div>
 </ng-template>
