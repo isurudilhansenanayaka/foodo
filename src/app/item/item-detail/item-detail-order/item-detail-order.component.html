@@ -1,18 +1,18 @@
 <div class="order">
-  
+
   <hr>
- 
-   
+
+
       <label>Your arrival time to Restaurent  :---</label>
       <input class="form-control timepicker" id="appt-time" type="time" name="appt-time"
       min="00:00" max="18:00" required
       pattern="[0-9]{2}:[0-9]{2}" value="20:00">
-      
-   
-    <button (click)="openConfirmModal(content)" class="btn btn-danger btn-confirm btn-block" routerLink="">Order place now</button>
+
+
+    <button (click)="openConfirmModal(content)" class="btn btn-danger btn-confirm btn-block" routerLink="">Place order now</button>
     <hr>
-  
- 
+
+
   <p class="order-note-title">People are interested into this Restaurent.</p>
   <p class="order-note-text">
     More than 50 people checked this rental in last 6 month.
@@ -23,15 +23,15 @@
 <ng-template #content let-c="close" let-d="dismiss" class="text-warning">
   <div class="modal-header" class="p-3 mb-2 bg-dark text-white">
     <h4 class="modal-title" class="p-3 mb-2 bg-dark text-white">Confirm Order <p></p></h4>
-    
+
   </div>
   <div class="modal-body"class="p-3 mb-2 bg-light text-dark">
-    
-    
+
+
     <p>Do you confirm ?</p>
   </div>
-  
-  
+
+
   <div class="modal-footer">
     <button type="button" class="btn btn-primary"  (click)="c('Close click')">Confirm</button>
     <button type="button" class="btn btn-danger"  (click)="c('Close click')">Close</button>
